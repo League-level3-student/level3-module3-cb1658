@@ -62,22 +62,76 @@ public class _01_StringMethods {
     // You cannot assume there are no extra spaces around the name, but you can
     // assume there is only one space between the first and last name
     public static String lineLeader(String s1, String s2, String s3) {
-        return null;
+    	String s11 = s1.trim();
+    	String s21 = s2.trim();
+    	String s31 = s3.trim();
+    	int lowest = s11.charAt(s11.indexOf(" ")+1);
+    	
+    	if(s21.charAt(s21.indexOf(" ")+1)<lowest) {
+    		lowest = s21.charAt(s11.indexOf(" ")+1);
+    	}
+    	if(s31.charAt(s31.indexOf(" ")+1)<lowest) {
+    		lowest = s31.charAt(s31.indexOf(" ")+1);
+    	}
+    	
+    	if(lowest == s11.charAt(s11.indexOf(" ")+1)) {
+    		return s11;
+    	}
+    	if(lowest == s21.charAt(s21.indexOf(" ")+1)) {
+    		return s21;
+    	}
+    	if(lowest == s31.charAt(s31.indexOf(" ")+1)) {
+    		return s31;
+    	}
+    	return null;
     }
+    
+    
+    
+    
+    
+    
+    
+    
 
     // Return the sum of all numerical digits in the String
     public static int numeralSum(String s) {
-        return 0;
+    	int sum = 0;
+    	for(int i = 0; i < s.length(); i++) {
+    		if(Character.isDigit(s.charAt(i))) {
+    			sum = sum + s.charAt(i)-48;
+    		}
+    	}
+        return sum;
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
     // Return the number of times String substring appears in String s
     public static int substringCount(String s, String substring) {
-        return 0;
+    	int numOccurances = 0;
+    	int i = 0;
+        int index = s.indexOf(substring, i);
+        
+		while(index != -1) {
+			
+			numOccurances++;
+			i = index+substring.length();
+			
+			index = s.indexOf(substring, i);
+		}
+        return numOccurances;
     }
 
     // Call Utilities.encrypt at the bottom of this file to encrypt String s
     public static String encrypt(String s, char key) {
-        return null;
+        return Utilities.encrypt(s.getBytes(),(byte) key);
     }
 
     // Call Utilities.decrypt at the bottom of this file to decrypt the
