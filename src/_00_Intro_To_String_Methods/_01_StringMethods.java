@@ -1,5 +1,7 @@
 package _00_Intro_To_String_Methods;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
+
 import java.util.Base64;
 
 /*
@@ -43,14 +45,10 @@ public class _01_StringMethods {
     // If String s contains the word "underscores", change all of the spaces
     // to underscores
     public static String formatSpaces(String s) {
-    	for(int i = 0; i < s.length(); i++) {
-    		for(int k = 0; k < s.length(); k++) {
-    			if(s.substring(i,k).equals("underscores")) {
-    				s.replace(" ", "_");
-    			}
-    		}
+    	if(s.contains("underscores")) {
+    		return s.replace(' ', '_');
     	}
-        return s;
+    	return s; 
     }
     
     /////////////////////////////////// CONTINUE BELOW ///////////////////////////////////////////////
@@ -127,7 +125,16 @@ public class _01_StringMethods {
 			index = s.indexOf(substring, i);
 		}
         return numOccurances;
+        
     }
+    
+    
+    
+    
+    
+    
+    
+    
 
     // Call Utilities.encrypt at the bottom of this file to encrypt String s
     public static String encrypt(String s, char key) {
@@ -137,29 +144,80 @@ public class _01_StringMethods {
     // Call Utilities.decrypt at the bottom of this file to decrypt the
     // cyphertext (encrypted text)
     public static String decrypt(String s, char key) {
-        return null;
+        return Utilities.decrypt(s, (byte) key);
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     // Return the number of words in String s that end with String substring
     // You can assume there are no punctuation marks between words
     public static int wordsEndsWithSubstring(String s, String substring) {
-        return 0;
+        String[] words = s.split(" ");
+        int count = 0;
+        for(String i : words) {
+        	if(i.endsWith(substring)) {
+        		count++;
+        	}
+        }      
+        return count;
     }
 
+    
     // Given String s, return the number of characters between the first
     // occurrence of String substring and the final occurrence
     // You can assume that substring will appear at least twice
     public static int distance(String s, String substring) {
-        return 0;
+        int firstOcc = s.indexOf(substring);
+    	int lastOcc = s.lastIndexOf(substring);
+    	
+    	return lastOcc-firstOcc-substring.length();
     }
+    
+    
 
     // Return true if String s is a palindrome
     // palindromes are words or phrases are read the same forward as backward.
     // HINT: ignore/remove all punctuation and spaces in the String
     public static boolean palindrome(String s) {
-        return true;
+        String ss = s.trim();
+        String sss = ss.toLowerCase();
+        String ssss = "";
+        for(int i = 0; i < sss.length(); i++) {
+        	if(Character.isLetterOrDigit(sss.charAt(i))) {
+        		ssss += sss.charAt(i);
+        	}
+        }
+        
+        Boolean maybe = true;
+        
+        for(int k = 0; k < ssss.length(); k++) {
+        	if(ssss.charAt(k) != ssss.charAt(ssss.length()-k-1)) {
+        		maybe = false;
+        	}
+        }
+        
+        return maybe;
+        
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 class Utilities {
     // This basic encryption scheme is called single-byte xor. It takes a

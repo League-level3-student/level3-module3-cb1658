@@ -24,7 +24,7 @@ class _03_StringBuilderTest {
     }
 
     @Test
-    void removeTest() {
+    void deleteTest() {
         assertEquals("Remove  word", _03_StringBuilder.delete("Remove *this* word", 7, 13));
     }
 }

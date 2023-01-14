@@ -38,6 +38,62 @@ public static void main(String[] args) {
     // Appending characters to the end of a String
     System.out.println("append ......: " + builder.append(" append").toString());
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // Reversing a StringBuilder object
     System.out.println("reverse .....: " + builder.reverse().toString());
     builder.reverse();
